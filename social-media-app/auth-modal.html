@@ -1,0 +1,33 @@
+<div id="authModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="auth-header">
+            <h2>SocialHub</h2>
+            <span class="close" onclick="closeAuth()">&times;</span>
+        </div>
+        <div class="auth-tabs">
+            <button class="tab-btn active" onclick="switchTab('register')">Daftar</button>
+            <button class="tab-btn" onclick="switchTab('login')">Masuk</button>
+        </div>
+        <form id="authForm">
+            <div id="registerTab" class="auth-tab active">
+                <input type="text" id="regUsername" placeholder="Username" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+                <div class="avatar-preview" onclick="document.getElementById('avatarInput').click()">
+                    <i class="fas fa-camera"></i>
+                    <p>Pilih foto profil</p>
+                </div>
+                <div id="avatarPreview" style="display:none; width:100%; height:80px; background-size:cover; border-radius:12px; margin:10px 0;"></div>
+                <button type="submit">Daftar</button>
+            </div>
+            <div id="loginTab" class="auth-tab">
+                <input type="text" id="loginUsername" placeholder="Username or Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Masuk</button>
+            </div>
+        </form>
+        <div class="auth-footer">
+            <p>Sudah punya akun? <a href="#" onclick="switchTab('login')">Masuk</a></p>
+        </div>
+    </div>
+</div>
