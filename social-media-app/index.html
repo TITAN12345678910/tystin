@@ -42,13 +42,13 @@
             <div id="registerTab" class="auth-tab active">
                 <input type="text" id="regUsername" placeholder="Username" required>
                 <input type="email" id="regEmail" placeholder="Email" required>
-                <input type="password" id="regPassword" placeholder="Password" required style="display:block;">
+                <input type="password" id="regPassword" placeholder="Password" required>
                 <input type="file" id="avatarInput" accept="image/*" style="display:none;">
                 <div class="avatar-preview" onclick="document.getElementById('avatarInput').click()">
                     <i class="fas fa-camera"></i>
                     <p>Pilih foto profil</p>
                 </div>
-                <div id="avatarPreview" style="display:none;"></div>
+<div id="avatarPreview" style="display:none; width:100%; height:80px; background-size:cover; border-radius:12px; margin:10px 0;"></div>
                 <button type="submit">Daftar</button>
             </div>
             <div id="loginTab" class="auth-tab">
