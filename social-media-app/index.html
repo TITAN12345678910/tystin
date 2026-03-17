@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialHub - Bagikan Foto & Video</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <i class="fab fa-instagram nav-logo" onclick="toggleView()"></i>
+            <span class="nav-title">SocialHub</span>
+        </div>
+        <div class="nav-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Cari" id="searchInput">
+        </div>
+        <div class="nav-right">
+            <i class="fas fa-home nav-icon active" onclick="showFeed()"></i>
+            <i class="fas fa-compass nav-icon" onclick="showExplore()"></i>
+            <i class="fas fa-plus-square nav-icon" onclick="showUpload()"></i>
+            <i class="fas fa-heart nav-icon"></i>
+            <i class="fas fa-user nav-icon" onclick="showProfile()"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Feed View (Default) -->
+        <div id="feedView" class="view active">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="setView('grid')"><i class="fas fa-th"></i> Grid</button>
+                <button class="toggle-btn" onclick="setView('reel')"><i class="fas fa-mobile-alt"></i> Reels</button>
+            </div>
+            <div id="postsGrid" class="posts-grid"></div>
+            <div id="postsReel" class="posts-reel"></div>
+        </div>
+
+        <!-- Upload Modal -->
+        <div id="uploadModal" class="modal">
+            <div class="modal-content">
+                <div class="upload-header">
+                    <h2>Buat Post Baru</h2>
+                    <span class="close" onclick="closeUpload()">&times;</span>
+                </div>
+                <form id="uploadForm">
+                    <div class="upload-preview" id="uploadPreview">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Pilih foto atau video</p>
+                    </div>
+                    <input type="file" id="mediaInput" accept="image/*,video/*" style="display: none;">
+                    <textarea id="captionInput" placeholder="Tulis caption..."></textarea>
+                    <div class="upload-actions">
+                        <button type="button" onclick="closeUpload()">Batal</button>
+                        <button type="submit">Bagikan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Explore View -->
+        <div id="exploreView" class="view">
+            <h2>Explore</h2>
+            <div class="toggle-buttons" style="display: none;">
+                <button class="toggle-btn active" onclick="setView('grid')"><i class="fas fa-th"></i> Grid</button>
+                <button class="toggle-btn" onclick="setView('reel')"><i class="fas fa-mobile-alt"></i> Reels</button>
+            </div>
+            <div id="postsGrid-explore" class="posts-grid"></div>
+            <div id="postsReel-explore" class="posts-reel"></div>
+        </div>
+        <!-- Profile View -->
+        <div id="profileView" class="view">
+            <h2>Profil - Posts Kamu (<span id="userPostCount">0</span>)</h2>
+            <div class="toggle-buttons" style="display: none;">
+                <button class="toggle-btn active" onclick="setView('grid')"><i class="fas fa-th"></i> Grid</button>
+                <button class="toggle-btn" onclick="setView('reel')"><i class="fas fa-mobile-alt"></i> Reels</button>
+            </div>
+            <div id="postsGrid-profile" class="posts-grid"></div>
+            <div id="postsReel-profile" class="posts-reel"></div>
+        </div>
+
+        <!-- Comment Modal -->
+        <div id="commentModal" class="modal">
+            <div class="modal-content comment-modal">
+                <div class="comment-header">
+                    <h3>Komentar</h3>
+                    <span class="close" onclick="closeCommentModal()">&times;</span>
+                </div>
+                <div id="commentsList" class="comments-list"></div>
+                <div class="comment-input-box">
+                    <input type="text" id="commentInput" placeholder="Tambah komentar...">
+                    <button onclick="addComment()" class="comment-submit-btn">Kirim</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
