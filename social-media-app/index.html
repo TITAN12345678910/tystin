@@ -11,7 +11,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-left">
-            <i class="fab fa-instagram nav-logo" onclick="toggleView()"></i>
+<i class="fab fa-instagram nav-logo" onclick="toggleView()" tabindex="0"></i>
             <span class="nav-title">SocialHub</span>
         </div>
         <div class="nav-search">
@@ -19,11 +19,11 @@
             <input type="text" placeholder="Cari" id="searchInput">
         </div>
         <div class="nav-right">
-            <i class="fas fa-home nav-icon active" onclick="showFeed()"></i>
-            <i class="fas fa-compass nav-icon" onclick="showExplore()"></i>
-            <i class="fas fa-plus-square nav-icon" onclick="showUpload()"></i>
-            <i class="fas fa-heart nav-icon"></i>
-            <i class="fas fa-user nav-icon" onclick="showProfile()"></i>
+<i class="fas fa-home nav-icon active" onclick="showFeed()" tabindex="0"></i>
+<i class="fas fa-compass nav-icon" onclick="showExplore()" tabindex="0"></i>
+<i class="fas fa-plus-square nav-icon" onclick="showUpload()" tabindex="0"></i>
+<i class="fas fa-heart nav-icon" tabindex="0"></i>
+<i class="fas fa-user nav-icon" onclick="showProfile()" tabindex="0"></i>
         </div>
     </nav>
 
@@ -44,7 +44,7 @@
                 <input type="email" id="regEmail" placeholder="Email" required>
                 <input type="password" id="regPassword" placeholder="Password" required>
                 <input type="file" id="avatarInput" accept="image/*" style="display:none;">
-                <div class="avatar-preview" onclick="document.getElementById('avatarInput').click()">
+<div class="avatar-preview" onclick="document.getElementById('avatarInput').click()" tabindex="0"></div>
                     <i class="fas fa-camera"></i>
                     <p>Pilih foto profil</p>
                 </div>
@@ -80,7 +80,7 @@
                     <span class="close" onclick="closeUpload()">&times;</span>
                 </div>
                 <form id="uploadForm">
-                    <div class="upload-preview" id="uploadPreview">
+<div class="upload-preview" id="uploadPreview" tabindex="0"></div>
                         <i class="fas fa-cloud-upload-alt"></i>
                         <p>Pilih foto atau video</p>
                     </div>
@@ -132,6 +132,7 @@
 
     </main>
 
+<script src="keyboard.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -22,7 +22,11 @@
 - Follow buttons
 - Responsive improvements
 
-### 5. [ ] Test & Complete
+### 5. [✅] Test & Complete
+- Video upload validation: 2s min, 180s max ✓
+- Audio preservation in videos ✓ (no mute, click to play sound)
+- Multi-user profiles/follow ✓
+
 - Test video upload validation
 - Test multi-user profiles/follow
 - Run `start social-media-app/index.html`
