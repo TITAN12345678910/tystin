@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syfaus.Ai - Ubah Imajinasi Menjadi Realitas Visual</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-magic"></i>
+            <span>Syfaus.Ai</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#history">Riwayat</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Ubah Imajinasi Menjadi Realitas Visual</h1>
+                <p>Satu perintah, seribu kreasi. Edit gambar & video dengan bahasa alami.</p>
+                <div class="hero-buttons">
+                    <button onclick="startEditing()" class="btn-primary">Mulai Edit Gratis</button>
+                    <button class="btn-secondary">Lihat Contoh</button>
+                </div>
+            </div>
+            <div class="hero-demo">
+                <div class="demo-before">Sebelum</div>
+                <div class="demo-after">Sesudah</div>
+            </div>
+        </section>
+
+        <!-- Editor Section -->
+        <section id="editor" class="editor-section hidden">
+            <div class="editor-container">
+                <!-- Upload Area -->
+                <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop gambar/video atau klik untuk upload</p>
+                    <p class="supported">JPG, PNG, WEBP, MP4 (max 50MB)</p>
+                    <input type="file" id="fileInput" accept="image/*,video/*" multiple>
+                </div>
+
+                <!-- Preview Uploaded -->
+                <div id="originalPreview" class="preview-container hidden">
+                    <h3>Original</h3>
+                    <canvas id="originalCanvas" class="preview-canvas"></canvas>
+                    <video id="originalVideo" class="preview-video hidden" controls></video>
+                </div>
+
+                <!-- Prompt Input -->
+                <div class="prompt-section">
+                    <label>Apa yang ingin diubah? (Contoh: "Ganti baju menjadi gaun merah", "Ubah background menjadi pantai sunset")</label>
+                    <div class="prompt-input-container">
+                        <textarea id="promptInput" placeholder="Ketik perintah edit Anda..." rows="3"></textarea>
+                        <button id="examplesBtn" onclick="loadExamples()"><i class="fas fa-lightbulb"></i> Contoh</button>
+                    </div>
+                    <div id="promptExamples" class="prompt-examples hidden">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="generate-actions">
+                        <button id="generateBtn" class="btn-primary" onclick="generateEdit()">
+                            <span id="generateText">Generate Edit</span>
+                            <i id="loadingSpinner" class="fas fa-spinner fa-spin hidden"></i>
+                        </button>
+                        <button id="regenerateBtn" class="btn-secondary hidden" onclick="regenerateEdit()">Regenerate</button>
+                        <div class="credits">Kredit gratis tersisa: <span id="credits">10</span>/10 hari ini</div>
+                    </div>
+                </div>
+
+                <!-- Results Preview -->
+                <div id="resultsSection" class="results-section hidden">
+                    <h3>Hasil Edit <button id="downloadBtn" class="btn-download"><i class="fas fa-download"></i> Download</button></h3>
+                    <div class="slider-container">
+                        <div class="before-after-slider">
+                            <canvas id="resultCanvas" class="preview-canvas"></canvas>
+                            <div class="slider-handle">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>Sebelum</span>
+                            <span>SESUDAH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Sidebar -->
+        <aside id="historySidebar" class="history-sidebar hidden">
+            <h3>Riwayat Edit</h3>
+            <div id="historyList"></div>
+            <button onclick="clearHistory()" class="btn-clear-history">Hapus Semua</button>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Syfaus.Ai - Dibuat dengan ❤️ untuk kreator Indonesia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
